@@ -3,7 +3,7 @@
 
     'summary': "CEERI CRM Project",
 
-    'licence': 'LGPL-3',
+    'license': 'LGPL-3',
     'author': "CEERI",
     'website': "https://www.ceeri.com",
 
