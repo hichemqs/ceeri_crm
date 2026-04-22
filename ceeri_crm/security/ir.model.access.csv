@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ceeri_crm.access_ceeri_validity_wizard,access_ceeri_validity_wizard,ceeri_crm.model_ceeri_validity_wizard,base.group_user,1,1,1,1
+ceeri_crm.access_ceeri_conversion_wizard,access_ceeri_conversion_wizard,ceeri_crm.model_ceeri_conversion_wizard,base.group_user,1,1,1,1
+ceeri_crm.access_ceeri_project_template,access_ceeri_project_template,ceeri_crm.model_ceeri_project_template,base.group_user,1,1,1,1
+ceeri_crm.access_ceeri_sale_template,access_ceeri_sale_template,ceeri_crm.model_ceeri_sale_template,base.group_user,1,1,1,1

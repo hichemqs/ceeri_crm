@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="report_layout_ceeri">
+
+        <t t-call="web.html_container">
+            <meta charset="UTF-8"/>
+            <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse !important;
+                border: none !important;
+            }
+
+            td, th {
+                border: none !important;
+                vertical-align: top;
+            }
+
+           
+            .page {
+                font-family: "Segoe UI",Arial, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                padding: 0 30px; 
+                margin-top: 0;
+            }
+
+           
+            .title-main {
+                font-size: 26px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            .title-sub {
+                font-size: 22px;
+                color: #3b82f6;
+                font-weight: bold;
+                margin-top: 2px;
+            }
+
+            .full-line {
+                border: none;
+                border-top: 2px solid #3b82f6;
+                width: 100%;
+            }
+            </style>
+
+
+            <t t-set="doc" t-value="docs and docs[0] or None"/>
+
+            <t t-foreach="doc.message_follower_ids.mapped('partner_id')" t-as="p">
+
+
+                <div class="page" style="page-break-after: always;">
+
+                    <!-- HEADER -->
+                    <div style="margin-bottom:3px;">
+
+                        <div style="text-align:center;">
+                            <div style="display:inline-block; text-align:left;">
+
+                                <div class="title-main">
+                                    <t t-esc="res_company.name or ''"/>
+                                </div>
+
+                                <div class="title-sub">
+                        Un Accompagnement sûr !
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="width:100%; margin-top:10px; padding-left:10mm; padding-right:10mm;">
+
+
+                            <div style="display:inline-block; width:30%; vertical-align:middle;">
+                                <img t-if="res_company and res_company.logo" t-att-src="image_data_uri(res_company.logo)" style="height:110px; object-fit:contain; margin-bottom:5mm; display:block;"/>
+                            </div>
+
+
+                            <div style="display:inline-block; width:68%; vertical-align:middle; text-align:right; font-weight: normal;">
+
+                                <div style="text-align:left; display:inline-block;">
+
+                                    <div style="white-space:nowrap; ">
+                                        <t t-esc="res_company.partner_id.street or ''"/>
+                                    </div>
+
+                                    <div style="margin-top:4px; white-space:nowrap;">
+                                        <t t-esc="res_company.phone or ''"/>
+                                    </div>
+
+                                    <div style="margin-top:4px; white-space:nowrap; ">
+                                        <t t-esc="res_company.website.replace('http://','').replace('https://','') if res_company.website else ''"/>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="full-line"/>
+
+                    <!-- BODY -->
+                    <t t-call="ceeri_crm.report_body_ceeri">
+                        <t t-set="doc" t-value="doc"/>
+                        <t t-set="p" t-value="p"/>
+                    </t>
+
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

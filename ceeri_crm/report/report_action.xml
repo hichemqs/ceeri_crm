@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="action_report_task_document" model="ir.actions.report">
+        <field name="name">Task Document</field>
+        <field name="model">project.task</field>
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">ceeri_crm.report_layout_ceeri</field>
+        <field name="report_file">ceeri_crm.report_layout_ceeri</field>
+
+    </record>
+
+</odoo>
