@@ -5,7 +5,7 @@
     ============================================================ -->
     <record id="action_planning_by_employee" model="ir.actions.act_window">
         <field name="name">Par Employé</field>
-        <field name="res_model">planning.slot</field>
+        <field name="res_model">planning.planning</field>    
         <field name="view_mode">list,form</field>
         <field name="domain">[('employee_id', '!=', False)]</field>
         <field name="context">{'group_by': 'employee_id'}</field>
@@ -16,8 +16,8 @@
     ============================================================ -->
     <record id="view_planning_employee_list" model="ir.ui.view">
         <field name="name">planning.slot.employee.list</field>
-        <field name="model">planning.slot</field>
-        <field name="arch" type="xml">
+        <field name="model">planning.planning</field>      
+         <field name="arch" type="xml">
             <list string="Planification par Employé">
                 <field name="employee_id" string="Employé"/>
                 <field name="resource_id" string="Ressource / Matériel"/>
