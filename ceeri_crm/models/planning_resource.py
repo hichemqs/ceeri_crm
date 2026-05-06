@@ -5,5 +5,6 @@ class PlanningSlot(models.Model):
 
     employee_id = fields.Many2one(
         'hr.employee',
-        string="Assigned Employee"
+        string="Assigné à",
+        help="L'employé responsable de cette ressource"
     )

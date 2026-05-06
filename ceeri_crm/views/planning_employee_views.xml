@@ -1,0 +1,70 @@
+<odoo>
+
+    <!-- ============================================================
+         1. ACTION: يعرض planning slots مجمعة بالموظف
+    ============================================================ -->
+    <record id="action_planning_by_employee" model="ir.actions.act_window">
+        <field name="name">Par Employé</field>
+        <field name="res_model">planning.slot</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('employee_id', '!=', False)]</field>
+        <field name="context">{'group_by': 'employee_id'}</field>
+    </record>
+
+    <!-- ============================================================
+         2. LIST VIEW: يعرض الموظف + المعدة + التواريخ
+    ============================================================ -->
+    <record id="view_planning_employee_list" model="ir.ui.view">
+        <field name="name">planning.slot.employee.list</field>
+        <field name="model">planning.slot</field>
+        <field name="arch" type="xml">
+            <list string="Planification par Employé">
+                <field name="employee_id" string="Employé"/>
+                <field name="resource_id" string="Ressource / Matériel"/>
+                <field name="start_datetime" string="Date Début"/>
+                <field name="end_datetime" string="Date Fin"/>
+                <field name="allocated_hours" string="Heures Allouées"/>
+                <field name="project_id" string="Projet"
+                       optional="show"/>
+                <field name="role_id" string="Rôle"
+                       optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================================================
+         3. FORM VIEW: تفاصيل كل slot
+    ============================================================ -->
+    <record id="view_planning_employee_form" model="ir.ui.view">
+        <field name="name">planning.slot.employee.form</field>
+        <field name="model">planning.slot</field>
+        <field name="arch" type="xml">
+            <form string="Planification Employé">
+                <sheet>
+                    <group string="Informations Générales">
+                        <field name="employee_id" string="Assigné à"/>
+                        <field name="resource_id" string="Ressource / Matériel"/>
+                        <field name="role_id" string="Rôle"/>
+                        <field name="project_id" string="Projet"/>
+                    </group>
+                    <group string="Temps">
+                        <field name="start_datetime" string="Date Début"/>
+                        <field name="end_datetime" string="Date Fin"/>
+                        <field name="allocated_hours" string="Heures Allouées"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================================
+         4. MENU: زيد في planning
+    ============================================================ -->
+    <menuitem
+        id="menu_planning_by_employee"
+        name="Par Employé"
+        parent="planning.planning_menu_root"
+        action="action_planning_by_employee"
+        sequence="20"/>
+
+</odoo>

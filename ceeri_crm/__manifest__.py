@@ -16,11 +16,9 @@
     # any module necessary for this one to work correctly
     'depends': [
         'crm',
-        'project',
-        'sale_management',
-        'mail',
-        "hr", 
-        "planning",
+    'project',
+    'sale_management',
+    'mail',
     ],
 
     # always loaded
@@ -39,9 +37,7 @@
         'views/conversion_wizard.xml',
         'views/project_template_views.xml',
         'views/sale_template_views.xml',
-        'views/planning_views.xml',
-        'views/planning_employee_menu.xml',
-        'views/sale_template_views.xml'
+        'views/planning_employee_views.xml'
     ],
    'installable': True,
    'application': True,
