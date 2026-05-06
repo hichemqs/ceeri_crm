@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="action_planning_by_employee" model="ir.actions.act_window">
+        <field name="name">Planning by Employees</field>
+        <field name="res_model">planning.slot</field>
+        <field name="view_mode">list,calendar</field>
+    </record>
+
+    <menuitem id="menu_planning_by_employee"
+              name="By Employees"
+              parent="planning.planning_menu_root"
+              action="action_planning_by_employee"/>
+
+</odoo>

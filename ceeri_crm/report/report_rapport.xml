@@ -1,0 +1,128 @@
+<odoo>
+    <template id="report_body_ceeri">
+
+        <div style="font-family: Arial; font-size: 14pt; font-weight: bold; padding: 0 10mm;">
+
+
+
+            <!-- NUMBER -->
+            <div style="margin-bottom:20mm; margin-top:2mm;">
+                <span style="border-bottom:1px solid #000;">
+                            N° <t t-esc="doc.mission_number or ''"/>
+                </span>
+            </div>
+
+            <!-- TITLE -->
+            <div style="text-align:center; margin-bottom:20mm;">
+                <div style="
+                            display:inline-block;
+                            border:2px solid #3b82f6;
+                            padding:5px 25px;
+                            font-family:'Times New Roman';
+                            font-size:14pt;">
+                            Ordre de mission
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <table style="width:100%; border-collapse:collapse; font-size: 12pt; font-weight: bold; border:none; line-height:3;">
+
+                <tr>
+                    <td>Nom : <t t-esc="p.lastname or ''"/>
+                    </td>
+                    <td>Prénom : <t t-esc="p.firstname or ''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Fonction : <t t-esc="p.function or ''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Adresse : <t t-esc="p.contact_address or p.street or ''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Client : <t t-esc="''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Motif : <t t-esc="''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Moyen de transport : <t t-esc="''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">Matériel : <t t-esc="''"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Date aller : <t t-esc="doc.date_aller or ''"/>
+                    </td>
+                    <td>Date retour : <t t-esc="doc.date_deadline or ''"/>
+                    </td>
+                </tr>
+
+            </table>
+
+            <!-- FOOTER -->
+            <div style="margin-top:20mm;">
+                        Fait à Sétif le :
+                <span t-esc="time.strftime('%d/%m/%Y')"/>
+            </div>
+
+
+        </div>
+
+    </template>
+</odoo>

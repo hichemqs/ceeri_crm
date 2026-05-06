@@ -1,0 +1,58 @@
+<odoo>
+    <record id="crm_lead_view" model="ir.ui.view">
+        <field name="name">crm.lead.form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+    <xpath expr="//header" position="inside">
+
+
+        <button name="action_open_validity_wizard"
+                type="object"
+                string="Calculer validité"
+                class="btn-primary"/>
+
+
+        <button name="action_open_conversion_wizard"
+                type="object"
+                string="Convert Smart"
+                class="btn-primary"/>
+
+         <button name="action_open_project"
+            type="object"
+            string="Open Project"
+            class="btn-primary"
+            icon="fa-folder"
+            invisible="not project_id"/>
+
+        <button name="action_open_sale"
+            type="object"
+            string="Open Sale"
+            class="btn-success"
+            icon="fa-shopping-cart"
+            invisible="not sale_id"/>    
+            
+
+
+        </xpath>
+            <xpath expr="//sheet/notebook" position="inside">
+            
+                <page string="Tender Reference">
+                    <group>
+                        <field name="reference_appel_offre"/>
+                        <field name="date_depot"/>
+                        <field name="lieu_depot"/>
+                        <field name="prestataire_id"/>
+                        <field name="date_verification"/>
+                        <field name="date_cloture_prevue"/>
+                    </group>
+                    <group string="Conversion Setup">
+                        <field name="project_template_id"/>
+                        <field name="sale_template_id"/>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

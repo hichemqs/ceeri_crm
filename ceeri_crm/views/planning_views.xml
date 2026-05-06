@@ -1,0 +1,19 @@
+<odoo>
+
+    <record id="view_planning_slot_form_inherit_ceeri" model="ir.ui.view">
+        <field name="name">planning.slot.form.ceeri</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_slot_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group" position="inside">
+
+                <field name="employee_id"/>
+                <field name="equipment_ids"/>
+
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

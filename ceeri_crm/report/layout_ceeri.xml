@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <template id="report_layout_ceeri">
+
+        <t t-call="web.html_container">
+            <meta charset="UTF-8"/>
+            <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+
+            table {
+                width: 100%;
+                border-collapse: collapse !important;
+                border: none !important;
+            }
+
+            td, th {
+                border: none !important;
+                vertical-align: top;
+            }
+
+           
+            .page {
+                font-family: "Segoe UI",Arial, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+                padding: 0 30px; 
+                margin-top: 0;
+            }
+
+           
+            .title-main {
+                font-size: 24px;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+
+            .title-sub {
+                font-size: 22px;
+                color: #3b82f6;
+                font-weight: bold;
+                margin-top: 2px;
+            }
+
+            .full-line {
+                 border: none;
+                 border-top: 3px solid #3b82f6;
+                 margin: 2px -30px 0 -30px; 
+                 width: calc(100% + 60px); 
+            }
+            
+            </style>
+
+
+            <t t-set="doc" t-value="docs and docs[0] or None"/>
+
+            <t t-set="doc" t-value="docs and docs[0] or None"/>
+
+            <t t-foreach="doc.message_follower_ids.mapped('partner_id')" t-as="p">
+
+                <div class="page" style="page-break-after: always;">
+
+                    <div style="margin-bottom:3px;">
+
+                        <div style="text-align:center; margin-bottom:4mm;">
+                            <div style="display:inline-block; text-align:left; margin-left:20mm;">
+                                <div class="title-main">
+                                    <t t-esc="res_company.name or ''"/>
+                                </div>
+
+                                <div style="font-size:22px; color:#3b82f6;">
+                        Un Accompagnement sûr !
+                                </div>
+                            </div>
+                        </div>
+
+                        <table style="width:100%;">
+                            <tr>
+
+
+                                <td style="width:30%; vertical-align:top; padding:2mm 0 0 8mm;">
+                                    <img t-if="res_company and res_company.logo" t-att-src="image_data_uri(res_company.logo)" style="height:100px; object-fit:contain; margin-bottom:5mm; display:block;"/>
+                                </td>
+
+
+                                <td style="width:70%; vertical-align:top; text-align:right; padding:5mm 20mm 0 0;">
+
+                                    <div style="line-height:1.8; display:inline-block; text-align:left; white-space:nowrap;">
+
+                                        <div>
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEVElEQVR4AYxWXWgcVRT+zp2dJLvZ1TTVFmsp6oOCpvoQteg2NYgVQVHasvFBtFWEYkUfhEQUkkzWqKRJLRYjiEhLLSpRkYL0z2BLm6b+0BcVagWLNmhtY9Gm2f+Ze3puZmez02xKL+e7956fud/ce+7ZWYV5muOwSg5klqzsz65JvpHtTPZltt2fzuxOpjMHVqazw23pbFdbf2HdvW/xwnmWmDHXJGh3ODKqSstRoK2saQSMzSB6iUCPA7SagU0aGNDa22l7+S3J3tyy1g/YRo02hyCVGrGKyLQwSgclvgPgiIzzSQzM62Hxdw2TF1fUCgoTMNPZux5bAku9DtACVDeSfQAlMRUFsgnpZ2URc2TLCuf8NbMmfxYiaO+bbNSMtcRI+W7p/YULsvyE2A/LjkbluE6JJy8IxBLfrbYVfSGVYiswmjFEUIjEr2XGs8ZRAaMoZ3+QgI6x3thDto49oVmnZAv7BJKKSmQTM22avCN3Q8UikxCB5Rbr5Q2Xid0XkvcC/tWEwbGe2PfGeMght17HfpbXHALob4Qa17uWaqk2VQhSI2xxpG4Rqs+e2WPG7+Pd0W9R1QyJq6Mn5OE9VWYzrWftLjeTABLjT6ePICLLLfa1ck/kySYulLXQIFstavDJkBGwmdRN1TYVKPE2uIroH9E9gS8sd5twc6szdZ1vKPfMpK389SQ1UbaUBy7KZfi1rMwMFYLPO8hjL39GEndmxuN3CqxuabCsIVOxyQFOPDzIjavezC2V7D4j+XrEDwt6mtaEHwLNjBUCozDZebmVx818FizFpNbZbvYdFDIvTudzz7ma08zszMaYGUl98MnsVPQXowUIEdQhPsUq8jGAjKBKOA6QvLF6mxjb5Gg2oLrJW8luzhPU9p+GKPRsiEBuR95VhUNENALAFVydMAoSeCTR1PCljCEJERiPtzAxxVzaTuATkM7YrgQGJB30J5H+cO/LZIhC4XMIjm+kkq0TP2pFfXIjzoWi5yqSU0wISf9Yd3x0rhuYQ2CCzFHF66P7AHYYXLMOJE7WxTmwHh7vie4SvabUJDCRBzop4+r8JyA1CKKLxlaBf3RCrD472hsfrNhrTOYhYLrd4boomhWh9AU8/gigLILmJ/WwRXi/3fmvycQGrsvHMIFUaKvDsVX9uaXNVuHBInLd8r3ZrD3eycS75WGTRE9y85tc110ee11F2K81UWH1ff3ZG00hSkxIVLXW2odoA+XXeBqfMuu9pPCK+B9VddihWH8t83HBaVYQQuoE6HlSqosUf2Ux9qCQ24jLWoggYmcSDP20xNwtCMQC050M9R6Dj8rxy7eBpND4niBALkOEQbeB+alZmz8LETQnGv+XX9St4tovOCswyQ0KbgGBXmVSD8hCwW++K6QXmPEXM38jx/iuPBOSEIEplGPp+H5bR58krTdICQ1L9DHBH4LTAqkLbpBxAoxTgnECzD+O9S2Lo2vHe+I7xBeSSwAAAP//rdt0kQAAAAZJREFUAwCMqbW96yaRzgAAAABJRU5ErkJggg=="/>
+                                            <t t-esc="res_company.partner_id.street or ''"/>
+                                        </div>
+
+                                        <div style="margin-top:3px;">
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADHklEQVR4AaRVW2xMXRT+1jozZqb6//n9/+9+exWP7i2NChEq4UHcErxKiHggkbgkmyKRiIcmgghBSFyeJEjwoChCNF6qD5UghKhbW2M67Tlz9rJOR5xO2zk67KzvnL3X7TvnrL3XYRjhatP2T+W+7MTK2q6Fc/Zmds3em72huDZ7nzsNfzi4asi3/zxO7CTfXiexNwRUC8hCEOaRzW2tOCypP+Fg6/J0TbANRJP1HopISoD5lHGXhMrSZ0yM5RFhf5P466rNy2SET6SJBTwuwiNBwAyPRlVE+ESamGC9KA+BJCxs4eeLCuhj0zeg53104ZIgIsiQleI+ofeAMwbxLbW4iv4i6CbQ/Qd7ym/2Nw5Ow8z+UwgeF3H/QmxPF7ENSs2dXlmHbtEzAHWicPggvG7wh/720wfpuNFQJ8dyV/RwXQ0UIUgrQMNmoX1CqCt9xkHIZ7e8Q8upn0Lag3UeEtjGO07STDVf/8/rSr8GSdBsyI2L+5DAxwB0K36IlGl9ViSd+KHfJekhCLLVm2Ht5Ng63fe6qygX6PIYHMmKS+IsrpNEPia8/iQIVPO9slbHxrZDbFOwDlGMRKjaSLJqf2b0u+bs9HRbuqbSpEf0JiogMIasgyEtjkObALQqeklIMnO/jKwwHf9WH8RYL5ZdZn0+BcZD4fh54viJdJtbU3UgPXzqcYkXEATZ6g3lPuVST4R4va7fK3pJQCKr4n7XOeJYred2nYTFBd2Bi3qctAMDdqmQf15850iqNTulH0HgGBS9e0TitoW/WtdvFb1qgqRAFugJ3wjR/4YaBxBt9bRUgJ0DEgQBjRvIGzepvCHn2BpdN4Ioq/dSJKbOY4oSqBGXV5L/yBva5BCt0aanhxGZQD8oiLj6hk2RBD2JtPB3dydfwea2kMhZQD4BNHBzRMHoFpLmXxP0xJA8MH99yErHNgZtJuAeQF8ROcRj4ecc6dPH2GjGdN7bnboYs8m1Ym2dmt8oPgKUBpD/cWkH07l2A/6AOD8riUADocWWekPvx04uM1qbuSTYRFaOEugOgBcQatH7dYF/qGFHsuU7AAAA//8oWqURAAAABklEQVQDANDxOFq4Ec8BAAAAAElFTkSuQmCC"/>
+                                            <t t-esc="res_company.phone or ''"/>
+                                        </div>
+
+                                        <div style="margin-top:3px;">
+                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE0ElEQVR4AYxVa4jUVRT/nXNndnec3TVdM9uIyjDBDwqaq7arbj6wtE8+oIdglGEoaon46LX/ih4SGLYUgRAmCZUQ9jDBHhi5BpmKkX5SU6MS29bV2XVmduae07nrzu7MNoKX+5tzz+/c87iv+TPKNVVq3KI1TVFm9PTo6uL7otSs6a9cbTQ5suH1K3VNUdecpijV3Bh1zzfUj19/IVkuTOD+l6A50ljTy9m7NJNeKU52C2MdkbvZE483ubUiH58HxxPg4lVwtALMe5K1NY81R12jxkVaEYIWoySBBa/Kc3oSWD4gwhukGMbsthBJA6m+qUC7QofbAiMbPwSKvwVoHYNae9h9XIvsjBCjTAKlSZEOyVJ2JhTvmfNMm9QN1f1epEbB60wv6loN9Y+S5JtF5RMzxAja5Ehae2JdC6Zt1YRxvZ3D77gI8UrX3cSs7yphImy28ZdAse9tFU/ZuEynoVbIw3F235qx3eDAGEvqWimVnm/FkXFGRRHXIlPP6tYYeXcgoegB6DdIPgPSGSjf2LZnlEAnm/lHg6m9pdUR0fIpz3ePDBw3JlqStrR5CploM/6+Bjpt8mubfq+VcSHA9H+IkLbF9QQ9wAKkROkeK2i32ft89V/j74wnaPGD72glu57MCIK/SOpXFQCV9fD0BROdtEDPBli5L9h2HRXSs0EPMG4zK+2hisR+KvInzT1H3v+Z6uiaxl5ltiK2oRhWwZOwExTwkgK8YjFA97PgtgLXK0kXaj473fxXG/rjeI49o8wzGMqjQZhahAYCjVGmOwBZWAARzbX97lFie1RFPGQBgFtBmi6KMdXmNwA01laJepQ2KxYpVh1RSl9Xc1BfB+JLJTO099GNYZDcUmKwkokoBeKaQfz1VDZDUlW6TRZ3Z8ooM3IY2Hig242SAe0GRgoie/4o05iA30t4giWloVBJ4caagLgLqsOKp6vtBMDtdsjyV4lB4RRaK+TD6/Rm64OIjUGq5os+LkiyRykdRHRTsBdAoIzFOWa3Ts8Y2Q8CzgLUoRw7b6GODICOExkP7RzgcMQqPxbehqheAdAfByqnWP2vfEiTu0Ryk0l4bgFgWib5dMqu06IYu8cDiHkFu6rtcc3tDXqAqlsGGfJ0pU8eYOVNBX8vNDuX8bMOtlRvs78KJInjy5XlhOF0AIn8EueqpTHCBq/+ZABUf/b59MYcVy4NegCzP0ax9La8yzYFvwIcy9F4wq2yFYHbNtqVFL/DlG8M17o9JoWbpc79YITtsf2W790QOWjn+UCROWd36jgqOMQEB8PQ4dWXSXU72Qcl6FZtgiBTyEsHQIdRvolCL9reH7ZTnxOmmBST5wytbZsS501eS7BvDWXTevk7tT+5QhJzrrUrM59VPrSJXYbibrFwkcAfWbXToJhghJjvWYW81vbikM/Q13pXEMZHovqrGb2yOySBVQaQXWEszMdcqGSHoveWgKBWpbYT0Zcs/iuTj1jg8IpPK+TVQy9V924N+lp/gqCHJNJ56VO7hk+AaBcIORZdYp/Nzy2pOVInlOy7QDtFZbvncJBkn0/aaVu8dnDwELMkQSB+evv29KGW5N7MHydWC2SJFXzGObfZAndWqH+fMv6Akp4ipbUEOUe57KKDLYmVbS3JfcF/MP4DAAD//zf12xYAAAAGSURBVAMAVX6CVp9j36wAAAAASUVORK5CYII="/>
+                                            <t t-esc="res_company.website.replace('http://','').replace('https://','') if res_company.website else ''"/>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                    <hr class="full-line"/>
+
+                    <!-- BODY -->
+                    <t t-call="ceeri_crm.report_body_ceeri">
+                        <t t-set="doc" t-value="doc"/>
+                        <t t-set="p" t-value="p"/>
+                    </t>
+
+                </div>
+
+            </t>
+        </t>
+    </template>
+
+</odoo>

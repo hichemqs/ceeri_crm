@@ -1,0 +1,30 @@
+<odoo>
+
+    <record id="view_validity_wizard_form" model="ir.ui.view">
+        <field name="name">ceeri.validity.wizard.form</field>
+        <field name="model">ceeri.validity.wizard</field>
+        <field name="arch" type="xml">
+
+            <form string="Calculate Validity">
+
+                <group>
+                    <field name="validity_days"/>
+                </group>
+
+                <footer>
+                    <button name="action_compute_validity"
+                            type="object"
+                            string="Apply"
+                            class="btn-primary"/>
+
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+
+            </form>
+
+        </field>
+    </record>
+
+</odoo>
