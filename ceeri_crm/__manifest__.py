@@ -16,11 +16,17 @@
     # any module necessary for this one to work correctly
     'depends': [
         'crm',
+<<<<<<< HEAD
         'project',
         'sale_management',
         'mail',
         "hr", 
         "planning",
+=======
+    'project',
+    'sale_management',
+    'mail',
+>>>>>>> 4ca36ed2dfb7a8cb946997576bd0fe7c74c5d5c4
     ],
 
     # always loaded
@@ -38,9 +44,13 @@
         'views/task_view.xml',
         'views/conversion_wizard.xml',
         'views/project_template_views.xml',
+<<<<<<< HEAD
         'views/sale_template_views.xml',
         'views/planning_views.xml',
         'views/planning_employee_menu.xml',
+=======
+        'views/sale_template_views.xml'
+>>>>>>> 4ca36ed2dfb7a8cb946997576bd0fe7c74c5d5c4
     ],
    'installable': True,
    'application': True,
